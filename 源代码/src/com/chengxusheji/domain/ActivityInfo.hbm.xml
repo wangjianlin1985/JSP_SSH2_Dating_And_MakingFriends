@@ -1,0 +1,78 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.chengxusheji.domain">
+
+	<class name="ActivityInfo" table="t_ActivityInfo">
+
+          <!-- 主键记录id -->
+          <id name="activityId" column="activityId">
+            <generator class="native"/>
+          </id>
+
+          <!-- 多对一属性: 活动类别 -->
+          <many-to-one name="typeObj"
+            column="typeObj"
+            class="ActivityType"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单字符串属性: 活动主题 -->
+          <property
+            name="title"
+            column="title"
+            type="string"
+            length="80"
+          />
+
+          <!-- 简单字符串属性: 活动内容 -->
+          <property
+            name="content"
+            column="content"
+            type="string"
+            length="2000"
+          />
+
+          <!-- 简单字符串属性: 活动时间 -->
+          <property
+            name="activityTime"
+            column="activityTime"
+            type="string"
+            length="30"
+          />
+
+          <!-- 简单整型属性: 已参与人数 -->
+          <property
+            name="personNum"
+            column="personNum"
+            type="int"
+
+          />
+
+          <!-- 多对一属性: 组织者 -->
+          <many-to-one name="userObj"
+            column="userObj"
+            class="UserInfo"
+            lazy="false"
+            outer-join="true"
+            cascade="save-update"
+          />
+
+          <!-- 简单字符串属性: 发起时间 -->
+          <property
+            name="addTime"
+            column="addTime"
+            type="string"
+            length="20"
+          />
+
+
+		 
+		
+	</class>
+	
+</hibernate-mapping>
+ 

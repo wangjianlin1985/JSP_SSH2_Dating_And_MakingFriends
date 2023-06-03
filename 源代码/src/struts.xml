@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+     <constant name="struts.i18n.encoding" value="UTF-8"/>
+     <constant name="struts.devMode" value="true" />
+     <!--Struts2中Action对象的创建交给spring完成-->
+     <constant name="struts.objectFactory" value="spring" />
+     <constant name="struts.multipart.maxSize" value="55000000"/> <!-- 文件上传大小限制 -->    
+       
+          
+	 <package name="login" namespace="/login" extends="struts-default">
+	        <action name="login_*" class="loginAction" method="{1}">
+	        	<result name="front_view">/index.jsp</result>
+	        	<result name="main_user_view">/index.jsp</result>
+	        	<result name="error">/error.jsp</result>  
+	        </action>  
+	 </package>
+	 
+         <!-- UserInfoAction配置 -->
+         <package name="UserInfo" namespace="/UserInfo" extends="struts-default">
+           <action name="UserInfo_*" class="userInfoAction" method="{1}">
+             <result name="input">/UserInfo/userInfo_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/UserInfo/userInfo_frontquery_result.jsp</result>
+             <result name="front_show_view">/UserInfo/userInfo_frontshow.jsp</result>
+           </action>
+         </package>
+
+         <!-- ActivityInfoAction配置 -->
+         <package name="ActivityInfo" namespace="/ActivityInfo" extends="struts-default">
+           <action name="ActivityInfo_*" class="activityInfoAction" method="{1}">
+             <result name="input">/ActivityInfo/activityInfo_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/ActivityInfo/activityInfo_frontquery_result.jsp</result>
+             <result name="front_show_view">/ActivityInfo/activityInfo_frontshow.jsp</result>
+           </action>
+         </package>
+
+         <!-- ActivityTypeAction配置 -->
+         <package name="ActivityType" namespace="/ActivityType" extends="struts-default">
+           <action name="ActivityType_*" class="activityTypeAction" method="{1}">
+             <result name="input">/ActivityType/activityType_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/ActivityType/activityType_frontquery_result.jsp</result>
+             <result name="front_show_view">/ActivityType/activityType_frontshow.jsp</result>
+           </action>
+         </package>
+
+         <!-- SignUpAction配置 -->
+         <package name="SignUp" namespace="/SignUp" extends="struts-default">
+           <action name="SignUp_*" class="signUpAction" method="{1}">
+             <result name="input">/SignUp/signUp_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="delete_success">/message.jsp</result>
+             <result name="front_query_view">/SignUp/signUp_frontquery_result.jsp</result>
+             <result name="front_user_query_view">/SignUp/signUp_frontUserquery_result.jsp</result>
+             <result name="front_show_view">/SignUp/signUp_frontshow.jsp</result>
+           </action>
+         </package>
+
+         <!-- NewsAction配置 -->
+         <package name="News" namespace="/News" extends="struts-default">
+           <action name="News_*" class="newsAction" method="{1}">
+             <result name="input">/News/news_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/News/news_frontquery_result.jsp</result>
+             <result name="front_show_view">/News/news_frontshow.jsp</result>
+           </action>
+         </package>
+         
+         
+          <!-- LeaveWordAction配置 -->
+         <package name="LeaveWord" namespace="/LeaveWord" extends="struts-default">
+           <action name="LeaveWord_*" class="leaveWordAction" method="{1}">
+             <result name="input">/LeaveWord/leaveWord_add.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="front_query_view">/LeaveWord/leaveWord_frontquery_result.jsp</result>
+             <result name="front_user_query_view">/LeaveWord/leaveWord_frontUserquery_result.jsp</result>
+             <result name="front_show_view">/LeaveWord/leaveWord_frontshow.jsp</result>
+           </action>
+         </package>
+
+
+	 
+	 
+ 	
+	<!-- NavAction配置 -->
+         <package name="Nav" namespace="/Nav" extends="struts-default">
+           <action name="Nav_*" class="navAction" method="{1}">
+             
+           </action>
+         </package>
+
+ 	 <package name="password" namespace="/password" extends="struts-default">
+	        <action name="ChangePassword" class="changePasswordAction">  
+	        	<result name="change_success">/message.jsp</result>
+	        	<result name="error">/error.jsp</result> 
+	        </action>  
+	 </package> 
+	 
+	  
+	 <package name="User" namespace="/User" extends="struts-default">
+	        <action name="User_*" class="com.chengxusheji.action.UserAction" method="{1}">  
+	        	<result name="user_query_view">/user_query_result.jsp</result>
+	        	<result name="success">/message.jsp</result>
+	        	<result name="error">/error.jsp</result> 
+	        </action>  
+	 </package>  
+	 
+</struts>
